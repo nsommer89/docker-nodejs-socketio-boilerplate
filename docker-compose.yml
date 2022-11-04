@@ -1,0 +1,20 @@
+version: '3.7'
+
+# NodeJS socket server
+services:
+  socket:
+    build: 
+      context: .
+      dockerfile: .docker/node-socket.Dockerfile
+    container_name: socket
+    restart: always
+    ports:
+      - 49500:7050
+    volumes:
+      - ./socket:/app
+
+volumes:
+  socket:
+
+networks:
+  nodejs:
